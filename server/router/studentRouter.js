@@ -1,11 +1,12 @@
-const stdData = require("../stdData.js");
+
 const express = require("express");
 const router = express.Router();
 const stdDt = require("../std.json");
+
 const fs = require("fs");
 
 router.get("/info", async (req, res) => {
-  res.send(stdDt);
+  res.send(stdDt);  
 });
 
 router.post("/create", (req, res) => {
@@ -25,7 +26,7 @@ router.post("/create", (req, res) => {
 
     students.push(newStudent);
 
-    //?: Write the updated data back to std.json
+    
     fs.writeFile("std.json", JSON.stringify(students), (err) => {
       if (err) {
         console.log("File Saving Error: ", err);
